@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhang/workroom/fake_obtlib/src/server/handler.cpp
+handler.h
+/home/zhang/workroom/fake_obtlib/src/server/handler.h
+iostream
+-
+
+/home/zhang/workroom/fake_obtlib/src/server/handler.h
+iostream
+-
+string.h
+-
+
+/home/zhang/workroom/fake_obtlib/src/server/main.cpp
+udpserver.h
+/home/zhang/workroom/fake_obtlib/src/server/udpserver.h
+
+/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp
+udpserver.h
+/home/zhang/workroom/fake_obtlib/src/server/udpserver.h
+
+/home/zhang/workroom/fake_obtlib/src/server/udpserver.h
+handler.h
+/home/zhang/workroom/fake_obtlib/src/server/handler.h
+sys/types.h
+-
+sys/socket.h
+-
+string.h
+-
+netinet/in.h
+-
+stdio.h
+-
+stdlib.h
+-
+

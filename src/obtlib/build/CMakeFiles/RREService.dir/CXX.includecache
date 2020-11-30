@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhang/workroom/fake_obtlib/src/obtlib/RREService_api.cpp
+RREService_api.h
+/home/zhang/workroom/fake_obtlib/src/obtlib/RREService_api.h
+
+/home/zhang/workroom/fake_obtlib/src/obtlib/RREService_api.h
+

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libRREService.a  CMakeFiles/RREService.dir/RREService_api.cpp.o
+/usr/bin/ranlib libRREService.a

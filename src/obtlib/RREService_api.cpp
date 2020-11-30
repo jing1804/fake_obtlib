@@ -1,6 +1,6 @@
 #include "RREService_api.h"
 #define SERV_PORT 8888
-#define SERV_IP "192.168.43.130"
+#define SERV_IP "192.168.1.18"
 #define MAXLINE 80
 #include <iostream>
 using namespace std;
@@ -17,6 +17,7 @@ BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len)
 {
 	char recvmsg[MAXLINE];
 	int ilen = 0;
+	cout << "begin recv" << endl;
 	udpclient::getInstance()->recv(recvmsg, ilen);
 	cout << "recv " << ilen << " :" << recvmsg << endl;
 	return true;

@@ -10,6 +10,12 @@
 #include <arpa/inet.h>
 typedef struct
 {
+	int type;
+	unsigned int len;
+	unsigned char pDataBuf[2048];
+}TS;
+typedef struct
+{
 	unsigned char valid;
 	char ipaddr[200];
 	unsigned int port;
@@ -22,12 +28,6 @@ typedef struct{
 }OBT_LOGLEVEL;
 typedef void(*obt_log_callback_b)(OBT_LOGLEVEL log_level, const char* msg);
 
-typedef struct
-{
-	int tyep;
-	unsigned int len;
-	unsigned char pDataBuf[2048];
-}TS;
 typedef int BOOL;
 #ifdef __cplusplus
 extern "C"{
@@ -35,8 +35,8 @@ extern "C"{
 
 extern BOOL RREServiceInit(ECUINFOSTR info, obt_log_callback_b cb);
 extern void RREServiceDeinit(void);
-extern BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len);
 extern BOOL SendMsgToRREService(TS *msgdat, unsigned int len);
+extern BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len);
 
 #ifdef __cplusplus
 }

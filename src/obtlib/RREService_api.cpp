@@ -1,6 +1,6 @@
 #include "RREService_api.h"
 #define SERV_PORT 8888
-#define SERV_IP "192.168.1.18"
+#define SERV_IP "192.168.43.130"
 #define MAXLINE 80
 #include <iostream>
 using namespace std;

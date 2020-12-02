@@ -1,5 +1,5 @@
 #include "udpserver.h"
-#define MAXLINE 80
+#define MAXLINE 2056
 #define SERV_PORT 8888
 udpserver::udpserver()
 {
@@ -24,16 +24,18 @@ void udpserver::run()
 {
 	int n;
 	socklen_t len;
-	char mesg[MAXLINE];
-	cout << "begin recv" << endl;	
+	char strmesg[MAXLINE];
+	char strout[MAXLINE];
+	
 	for(;;)
 	{
+		cout << "begin recv" << endl;	
 		len = sizeof(m_clieaddr);
-		n = recvfrom(m_isockfd, mesg, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, &len);
-		cout << "recv: " << mesg << endl;
-		string stroutmsg = handler(mesg, n);	
-		sendto(m_isockfd, stroutmsg.c_str(), stroutmsg.length(), 0, (struct sockaddr *)&m_clieaddr, len);
+		n = recvfrom(m_isockfd, strmesg, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, &len);
+		OBT_MSG stmesg;
+		rres_deserialization(strmesg, stmesg);
+		//cout << "recv: " << mesg << endl;
+		print_menu(stmesg, strout);
+		sendto(m_isockfd, strout, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, len);
 	}
-
-
 }

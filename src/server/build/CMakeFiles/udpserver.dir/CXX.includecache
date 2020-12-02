@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,17 +6,27 @@
 
 #IncludeRegexTransform: 
 
+/home/zhang/workroom/fake_obtlib/src/server/RREService_api.h
+common_type.h
+/home/zhang/workroom/fake_obtlib/src/server/common_type.h
+
+/home/zhang/workroom/fake_obtlib/src/server/common_type.h
+stdio.h
+-
+stdlib.h
+-
+
 /home/zhang/workroom/fake_obtlib/src/server/handler.cpp
 handler.h
 /home/zhang/workroom/fake_obtlib/src/server/handler.h
-iostream
--
 
 /home/zhang/workroom/fake_obtlib/src/server/handler.h
 iostream
 -
 string.h
 -
+RREService_api.h
+/home/zhang/workroom/fake_obtlib/src/server/RREService_api.h
 
 /home/zhang/workroom/fake_obtlib/src/server/main.cpp
 udpserver.h

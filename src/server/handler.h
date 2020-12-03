@@ -6,6 +6,7 @@
 void print_menu(OBT_MSG stmesg, char* strout);
 std::string handler(OBT_MSG stmesg, char cinput, char* strout);
 void rres_deserialization(char* strmesg, OBT_MSG stmesg);
+void rres_serialization(OBT_MSG stmesg, char* strout);
 
 
 #endif

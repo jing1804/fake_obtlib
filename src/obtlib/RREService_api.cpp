@@ -1,7 +1,7 @@
 #include "RREService_api.h"
 #define SERV_PORT 8888
-#define SERV_IP "192.168.43.130"
-#define MAXLINE 80
+#define SERV_IP "192.168.43.142"
+#define MAXLINE 2056 
 #include <iostream>
 using namespace std;
 BOOL RREServiceInit(ECUINFOSTR info, obt_log_callback_b cb)
@@ -20,11 +20,20 @@ BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len)
 	cout << "begin recv" << endl;
 	udpclient::getInstance()->recv(recvmsg, ilen);
 	cout << "recv " << ilen << " :" << recvmsg << endl;
+	TS msg;
+	memcpy(&msg, recvmsg, MAXLINE);
+	cout << "msg type: " << msg.type << endl;
+	cout << "msg length: " << msg.len << endl;
+	cout << "msg error code: " << *((unsigned int*)&(msg.pDataBuf[0])) << endl;
 	return true;
 }
 BOOL SendMsgToRREService(TS *msgdat, unsigned int len)
 {
-	bool br = udpclient::getInstance()->send("abc", 4);
+	char strmsg[MAXLINE];
+	memcpy(strmsg, &msgdat->type, sizeof(int));
+	memcpy(&strmsg[4], &msgdat->len, sizeof(int));
+	memcpy(&strmsg[8], &msgdat->pDataBuf, 2048);
+	bool br = udpclient::getInstance()->send(strmsg, sizeof(TS));
 	cout << "send result: " << br << endl;
 	return true;
 }
@@ -37,13 +46,13 @@ udpclient* udpclient::getInstance()
 	}
 	return udpclie;
 }
-bool udpclient::send(char* msg, int ilen)
+bool udpclient::send(const char* msg, int ilen)
 {
+	cout << "send len: " << ilen << endl;
 	return (write(m_isockfd, msg, ilen) > 0);		
 }
 bool udpclient::recv(char* msg, int& ilen)
 {
-	int n;
 	ilen = read(m_isockfd, msg, MAXLINE);
 	return (ilen != -1);
 }

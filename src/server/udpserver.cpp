@@ -32,7 +32,10 @@ void udpserver::run()
 		cout << "begin recv" << endl;	
 		len = sizeof(m_clieaddr);
 		n = recvfrom(m_isockfd, strmesg, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, &len);
+		cout << "recv length: " << n << endl;
 		OBT_MSG stmesg;
+		memcpy(&stmesg.type, strmesg, sizeof(int));
+		cout << "recv type: " << stmesg.type << endl;
 		rres_deserialization(strmesg, stmesg);
 		//cout << "recv: " << mesg << endl;
 		print_menu(stmesg, strout);

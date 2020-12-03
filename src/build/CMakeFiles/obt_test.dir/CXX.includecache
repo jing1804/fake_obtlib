@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -23,8 +23,18 @@ unistd.h
 -
 arpa/inet.h
 -
+common_type.h
+../obtlib/common_type.h
+
+../obtlib/common_type.h
+stdio.h
+-
+stdlib.h
+-
 
 /home/zhang/workroom/fake_obtlib/src/main.cpp
 RREService_api.h
 /home/zhang/workroom/fake_obtlib/src/RREService_api.h
+iostream
+-
 

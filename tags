@@ -106,7 +106,10 @@ ARCHITECTURE_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompile
 ARCHITECTURE_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	447;"	d	file:
 ARCHITECTURE_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	450;"	d	file:
 ARCHITECTURE_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	453;"	d	file:
+ARR_SIZE	src/server/common_type.h	102;"	d
 BOOL	src/obtlib/RREService_api.h	/^typedef int BOOL;$/;"	t
+BOOL	src/server/common_type.h	24;"	d
+CHAR	src/server/common_type.h	28;"	d
 CMAKE_BINARY_DIR	src/build/Makefile	/^CMAKE_BINARY_DIR = \/home\/zhang\/workroom\/fake_obtlib\/src\/build$/;"	m
 CMAKE_BINARY_DIR	src/build/obtlib/Makefile	/^CMAKE_BINARY_DIR = \/home\/zhang\/workroom\/fake_obtlib\/src\/build$/;"	m
 CMAKE_BINARY_DIR	src/obtlib/build/Makefile	/^CMAKE_BINARY_DIR = \/home\/zhang\/workroom\/fake_obtlib\/src\/obtlib\/build$/;"	m
@@ -845,11 +848,17 @@ DEC	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	472;"	d	fi
 DEC	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	457;"	d	file:
 DEC	src/server/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	472;"	d	file:
 DEC	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	457;"	d	file:
+DIDData	src/server/RREService_api.h	/^        CHAR DIDData[3][6];                                        \/\/ �������ݣ������š�NCF�š����̣�$/;"	m	struct:PARAMS_UNION::__anon6
+DIDData	src/server/RREService_api.h	/^        CHAR DIDData[REMOTE_CONFIG_DID_COUNT][REMOTE_CONFIG_DID_LENGTH]; \/\/ ��������$/;"	m	struct:PARAMS_UNION::__anon7
+DWORD	src/server/common_type.h	52;"	d
 ECUINFOSTR	src/obtlib/RREService_api.h	/^}ECUINFOSTR;$/;"	t	typeref:struct:__anon2
+ECUINFOSTR	src/server/RREService_api.h	/^}ECUINFOSTR;$/;"	t	typeref:struct:__anon5
 EQUALS	src/build/Makefile	/^EQUALS = =$/;"	m
 EQUALS	src/build/obtlib/Makefile	/^EQUALS = =$/;"	m
 EQUALS	src/obtlib/build/Makefile	/^EQUALS = =$/;"	m
 EQUALS	src/server/build/Makefile	/^EQUALS = =$/;"	m
+FALSE	src/server/common_type.h	82;"	d
+FILEPATH_MAX_LENGTH	src/server/RREService_api.h	23;"	d
 HEX	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	483;"	d	file:
 HEX	src/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	468;"	d	file:
 HEX	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	483;"	d	file:
@@ -859,9 +868,34 @@ HEX	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	468;
 ID_VOID_MAIN	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 ID_VOID_MAIN	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 ID_VOID_MAIN	src/server/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
+IGNORE_TYPE	src/server/common_type.h	/^typedef void                IGNORE_TYPE;$/;"	t
+INT16	src/server/common_type.h	44;"	d
+INT32	src/server/common_type.h	58;"	d
+INT32	src/server/common_type.h	68;"	d
+INT8	src/server/common_type.h	36;"	d
+MAX	src/server/common_type.h	90;"	d
 MAXLINE	src/obtlib/RREService_api.cpp	4;"	d	file:
 MAXLINE	src/server/udpserver.cpp	2;"	d	file:
+MAX_SFF_FILE_NUM	src/server/RREService_api.h	22;"	d
+MAX_SFF_FILE_NUM	src/server/RREService_api.h	24;"	d
+MAX_SFF_FILE_NUM	src/server/RREService_api.h	29;"	d
+MAX_VIN_LENGTH	src/server/RREService_api.h	33;"	d
+MIN	src/server/common_type.h	94;"	d
+OBT_DATA_BUF	src/server/RREService_api.h	/^}OBT_DATA_BUF;$/;"	t	typeref:struct:__anon10
+OBT_LL_CLOSE	src/server/RREService_api.h	/^	OBT_LL_CLOSE = 0, $/;"	e	enum:__anon9
+OBT_LL_DEBUG	src/server/RREService_api.h	/^	OBT_LL_DEBUG, $/;"	e	enum:__anon9
+OBT_LL_ERROR	src/server/RREService_api.h	/^	OBT_LL_ERROR, $/;"	e	enum:__anon9
+OBT_LL_FATAL	src/server/RREService_api.h	/^	OBT_LL_FATAL, $/;"	e	enum:__anon9
+OBT_LL_INFO	src/server/RREService_api.h	/^	OBT_LL_INFO, $/;"	e	enum:__anon9
+OBT_LL_WARNING	src/server/RREService_api.h	/^	OBT_LL_WARNING, $/;"	e	enum:__anon9
 OBT_LOGLEVEL	src/obtlib/RREService_api.h	/^}OBT_LOGLEVEL;$/;"	t	typeref:struct:__anon3
+OBT_LOGLEVEL	src/server/RREService_api.h	/^}OBT_LOGLEVEL; $/;"	t	typeref:enum:__anon9
+OBT_MSG	src/server/RREService_api.h	/^}OBT_MSG;$/;"	t	typeref:struct:__anon11
+PARAMS_CONFIG_CMD	src/server/RREService_api.h	/^    } PARAMS_CONFIG_CMD;                \/\/ ���ò�������$/;"	m	union:PARAMS_UNION	typeref:struct:PARAMS_UNION::__anon7
+PARAMS_PROGRAMMING_CMD	src/server/RREService_api.h	/^    } PARAMS_PROGRAMMING_CMD;           \/\/ ˢ�²�������$/;"	m	union:PARAMS_UNION	typeref:struct:PARAMS_UNION::__anon6
+PARAMS_PROGRESS	src/server/RREService_api.h	/^    } PARAMS_PROGRESS;$/;"	m	union:PARAMS_UNION	typeref:struct:PARAMS_UNION::__anon8
+PARAMS_UNION	src/server/RREService_api.h	/^typedef union PARAMS_UNION $/;"	u
+PARAMS_UNION	src/server/RREService_api.h	/^} PARAMS_UNION;$/;"	t	typeref:union:PARAMS_UNION
 PLATFORM_ID	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	313;"	d	file:
 PLATFORM_ID	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	316;"	d	file:
 PLATFORM_ID	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	319;"	d	file:
@@ -1048,6 +1082,13 @@ PLATFORM_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.
 PLATFORM_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	383;"	d	file:
 PLATFORM_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	386;"	d	file:
 PLATFORM_ID	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	390;"	d	file:
+PLATFORM_INT_LEN	src/server/common_type.h	20;"	d
+REMOTE_CONFIG_DID_COUNT	src/server/RREService_api.h	25;"	d
+REMOTE_CONFIG_DID_COUNT	src/server/RREService_api.h	30;"	d
+REMOTE_CONFIG_DID_LENGTH	src/server/RREService_api.h	26;"	d
+REMOTE_CONFIG_DID_LENGTH	src/server/RREService_api.h	31;"	d
+REMOTE_CONFIG_FEATURE_CODE_LEN	src/server/RREService_api.h	27;"	d
+REMOTE_CONFIG_FEATURE_CODE_LEN	src/server/RREService_api.h	32;"	d
 RM	src/build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	src/build/obtlib/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	src/obtlib/build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
@@ -1135,11 +1176,27 @@ SUFFIXES	src/build/obtlib/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	src/obtlib/build/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	src/server/build/Makefile	/^SUFFIXES =$/;"	m
 SendMsgToRREService	src/obtlib/RREService_api.cpp	/^BOOL SendMsgToRREService(TS *msgdat, unsigned int len)$/;"	f
+TRUE	src/server/common_type.h	86;"	d
 TS	src/obtlib/RREService_api.h	/^}TS;$/;"	t	typeref:struct:__anon1
+TS	src/server/RREService_api.h	/^}TS;$/;"	t	typeref:struct:__anon4
+UCHAR	src/server/common_type.h	32;"	d
 UDPSERVER_H	src/server/udpserver.h	2;"	d
+UINT16	src/server/common_type.h	48;"	d
+UINT32	src/server/common_type.h	62;"	d
+UINT32	src/server/common_type.h	72;"	d
+UINT64	src/server/common_type.h	78;"	d
+UINT8	src/server/common_type.h	40;"	d
+VINData	src/server/RREService_api.h	/^        CHAR VINData[MAX_VIN_LENGTH];                              \/\/ VIN ID$/;"	m	struct:PARAMS_UNION::__anon7
+_COMMON_TYPE_H_	src/server/common_type.h	2;"	d
+_RRESERVICE_API_	src/server/RREService_api.h	2;"	d
 const	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
 const	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
 const	src/server/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
+data_buf	src/server/RREService_api.h	/^   	OBT_DATA_BUF data_buf; $/;"	m	struct:__anon11
+ecsFilePath	src/server/RREService_api.h	/^        CHAR ecsFilePath[FILEPATH_MAX_LENGTH];                     \/\/ ecs�ļ�·��$/;"	m	struct:PARAMS_UNION::__anon7
+end_flag	src/server/RREService_api.h	/^	unsigned int end_flag;$/;"	m	struct:__anon10
+error_code	src/server/RREService_api.h	/^    int error_code;$/;"	m	struct:__anon10
+featureCodeFilePath	src/server/RREService_api.h	/^        CHAR featureCodeFilePath[REMOTE_CONFIG_FEATURE_CODE_LEN];  \/\/ FeatureCode�ļ�·��$/;"	m	struct:PARAMS_UNION::__anon7
 features	src/build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	src/build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
 features	src/obtlib/build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
@@ -1147,7 +1204,7 @@ features	src/obtlib/build/CMakeFiles/feature_tests.cxx	/^  const char features[]
 features	src/server/build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	src/server/build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
 getInstance	src/obtlib/RREService_api.cpp	/^udpclient* udpclient::getInstance()$/;"	f	class:udpclient
-handler	src/server/handler.cpp	/^string handler(char* msg, string strinput, int ilen)$/;"	f
+handler	src/server/handler.cpp	/^string handler(OBT_MSG stmesg, char cinput, char* strout)$/;"	f
 i	src/obtlib/RREService_api.h	/^	int i;$/;"	m	struct:__anon3
 info_arch	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	src/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
@@ -1204,8 +1261,14 @@ info_version_internal	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXC
 info_version_internal	src/server/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_version_internal[] = {$/;"	v
 info_version_internal	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version_internal[] = {$/;"	v
 ipaddr	src/obtlib/RREService_api.h	/^	char ipaddr[200];$/;"	m	struct:__anon2
+ipaddr	src/server/RREService_api.h	/^	char ipaddr[20];$/;"	m	struct:__anon5
+isFunctionalAddress	src/server/RREService_api.h	/^        UINT16 isFunctionalAddress;  \/\/0: Physical 1: Functional$/;"	m	struct:PARAMS_UNION::__anon6
 laddr	src/obtlib/RREService_api.h	/^	unsigned char laddr[2];$/;"	m	struct:__anon2
+laddr	src/server/RREService_api.h	/^	unsigned char laddr[2];$/;"	m	struct:__anon5
 len	src/obtlib/RREService_api.h	/^	unsigned int len;$/;"	m	struct:__anon1
+len	src/server/RREService_api.h	/^	unsigned int len;$/;"	m	struct:__anon11
+len	src/server/RREService_api.h	/^	unsigned int len;$/;"	m	struct:__anon4
+logicAddress	src/server/RREService_api.h	/^		UINT8  logicAddress[2];  \/\/programming logic addr$/;"	m	struct:PARAMS_UNION::__anon6
 m_clieaddr	src/server/udpserver.h	/^	struct sockaddr_in m_clieaddr;$/;"	m	class:udpserver	typeref:struct:udpserver::sockaddr_in
 m_isockfd	src/obtlib/RREService_api.h	/^	int m_isockfd;$/;"	m	class:udpclient
 m_isockfd	src/server/udpserver.h	/^	int m_isockfd;$/;"	m	class:udpserver
@@ -1227,10 +1290,16 @@ main	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^i
 main	src/server/build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
 main	src/server/build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
 main	src/server/main.cpp	/^int main(){$/;"	f
+msg	src/server/RREService_api.h	/^	PARAMS_UNION msg;$/;"	m	struct:__anon10
+obt_log_callback	src/server/RREService_api.h	/^typedef void (*obt_log_callback)(OBT_LOGLEVEL log_level, const char* msg); $/;"	t
 obt_log_callback_b	src/obtlib/RREService_api.h	/^typedef void(*obt_log_callback_b)(OBT_LOGLEVEL log_level, const char* msg);$/;"	t
+offsetof	src/server/common_type.h	108;"	d
 pDataBuf	src/obtlib/RREService_api.h	/^	unsigned char pDataBuf[2048];$/;"	m	struct:__anon1
+pDataBuf	src/server/RREService_api.h	/^    unsigned char pDataBuf[2048];$/;"	m	struct:__anon4
 port	src/obtlib/RREService_api.h	/^	unsigned int port;$/;"	m	struct:__anon2
-print_menu	src/server/udpserver.cpp	/^void udpserver::print_menu(string& strinput)$/;"	f	class:udpserver
+port	src/server/RREService_api.h	/^	unsigned int  port;$/;"	m	struct:__anon5
+ppfFilePath	src/server/RREService_api.h	/^        CHAR ppfFilePath[FILEPATH_MAX_LENGTH];                     \/\/ ppf�ļ�·��$/;"	m	struct:PARAMS_UNION::__anon6
+print_menu	src/server/handler.cpp	/^void print_menu(OBT_MSG stmesg, char* strout)$/;"	f
 qnxnto	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	src/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
@@ -1238,15 +1307,24 @@ qnxnto	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/
 qnxnto	src/server/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	src/server/build/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 recv	src/obtlib/RREService_api.cpp	/^bool udpclient::recv(char* msg, int& ilen)$/;"	f	class:udpclient
+rres_deserialization	src/server/handler.cpp	/^void rres_deserialization(char* strmesg, OBT_MSG stmesg)$/;"	f
 run	src/server/udpserver.cpp	/^void udpserver::run()$/;"	f	class:udpserver
 saddr	src/obtlib/RREService_api.h	/^	unsigned char saddr[2];$/;"	m	struct:__anon2
+saddr	src/server/RREService_api.h	/^	unsigned char saddr[2];$/;"	m	struct:__anon5
 send	src/obtlib/RREService_api.cpp	/^bool udpclient::send(char* msg, int ilen)$/;"	f	class:udpclient
+sffFilePath	src/server/RREService_api.h	/^        CHAR sffFilePath[MAX_SFF_FILE_NUM][FILEPATH_MAX_LENGTH];   \/\/ sff�ļ�·��$/;"	m	struct:PARAMS_UNION::__anon6
+toIgnoreGWACK	src/server/RREService_api.h	/^        UINT16 toIgnoreGWACK; \/\/0: Care GW ACK 1:Ignore GW ACK$/;"	m	struct:PARAMS_UNION::__anon6
 type	src/obtlib/RREService_api.h	/^	int type;$/;"	m	struct:__anon1
+type	src/server/RREService_api.h	/^    int type;$/;"	m	struct:__anon11
+type	src/server/RREService_api.h	/^    int type;$/;"	m	struct:__anon4
 udpclient	src/obtlib/RREService_api.cpp	/^udpclient::udpclient()$/;"	f	class:udpclient
 udpclient	src/obtlib/RREService_api.h	/^class udpclient$/;"	c
 udpserver	src/server/udpserver.cpp	/^udpserver::udpserver()$/;"	f	class:udpserver
 udpserver	src/server/udpserver.h	/^class udpserver{$/;"	c
+ulDuration	src/server/RREService_api.h	/^        UINT32 ulDuration;      \/\/ ��ִ�е�ʱ��$/;"	m	struct:PARAMS_UNION::__anon8
+usProgress	src/server/RREService_api.h	/^        UINT16 usProgress;      \/\/ ��ִ�еĽ���$/;"	m	struct:PARAMS_UNION::__anon8
 valid	src/obtlib/RREService_api.h	/^	unsigned char valid;$/;"	m	struct:__anon2
+valid	src/server/RREService_api.h	/^	unsigned char valid;   $/;"	m	struct:__anon5
 volatile	src/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	11;"	d	file:
 volatile	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	11;"	d	file:
 volatile	src/server/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	11;"	d	file:

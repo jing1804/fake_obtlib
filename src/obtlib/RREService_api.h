@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include "common_type.h"
+
 typedef struct
 {
 	int type;
@@ -22,13 +24,59 @@ typedef struct
 	unsigned char saddr[2];
 	unsigned char laddr[2];
 }ECUINFOSTR;
+#define MAX_SFF_FILE_NUM 5
+#define FILEPATH_MAX_LENGTH 256
+#define MAX_SFF_FILE_NUM 5
+#define REMOTE_CONFIG_DID_COUNT 5
+#define REMOTE_CONFIG_DID_LENGTH 32
+#define REMOTE_CONFIG_FEATURE_CODE_LEN 256
 
-typedef struct{
-	int i;
+#define MAX_SFF_FILE_NUM 5
+#define REMOTE_CONFIG_DID_COUNT 5
+#define REMOTE_CONFIG_DID_LENGTH 32
+#define REMOTE_CONFIG_FEATURE_CODE_LEN 256
+#define MAX_VIN_LENGTH 17
+typedef union PARAMS_UNION
+{
+    struct {
+        CHAR DIDData[3][6];                                        // �������ݣ������š�NCF�š����̣�
+        CHAR sffFilePath[MAX_SFF_FILE_NUM][FILEPATH_MAX_LENGTH];   // sff�ļ�·��
+        CHAR ppfFilePath[FILEPATH_MAX_LENGTH];                     // ppf�ļ�·��
+        UINT16 isFunctionalAddress;  //0: Physical 1: Functional
+        UINT16 toIgnoreGWACK; //0: Care GW ACK 1:Ignore GW ACK
+        UINT8  logicAddress[2];  //programming logic addr
+    } PARAMS_PROGRAMMING_CMD;           // ˢ�²�������
+  
+    struct {
+        CHAR DIDData[REMOTE_CONFIG_DID_COUNT][REMOTE_CONFIG_DID_LENGTH]; // ��������
+        CHAR ecsFilePath[FILEPATH_MAX_LENGTH];                     // ecs�ļ�·��
+        CHAR featureCodeFilePath[REMOTE_CONFIG_FEATURE_CODE_LEN];  // FeatureCode�ļ�·��
+        CHAR VINData[MAX_VIN_LENGTH];                              // VIN ID
+    } PARAMS_CONFIG_CMD;                // ���ò�������
+
+    struct {
+        UINT32 ulDuration;      // ��ִ�е�ʱ��
+        UINT16 usProgress;      // ��ִ�еĽ���
+    } PARAMS_PROGRESS;
+
+} PARAMS_UNION;
+
+typedef enum
+{
+    OBT_LL_CLOSE = 0,
+    OBT_LL_DEBUG,
+    OBT_LL_INFO,
+    OBT_LL_WARNING,
+    OBT_LL_ERROR,
+    OBT_LL_FATAL,
 }OBT_LOGLEVEL;
+
+/*typedef struct{
+	int i;
+}OBT_LOGLEVEL;*/
+//typedef int BOOL;
 typedef void(*obt_log_callback_b)(OBT_LOGLEVEL log_level, const char* msg);
 
-typedef int BOOL;
 #ifdef __cplusplus
 extern "C"{
 #endif 
@@ -45,7 +93,7 @@ class udpclient
 {
 public:
 	static udpclient* getInstance();
-	bool send(char* msg, int ilen);
+	bool send(const char* msg, int ilen);
 	bool recv(char* msg, int& ilen);
 private:
 	udpclient();
@@ -53,5 +101,15 @@ private:
 	int m_isockfd;
 	struct sockaddr_in m_servaddr;
 };
+typedef struct {
+    int error_code;
+    unsigned int end_flag;
+    PARAMS_UNION msg;
+}OBT_DATA_BUF;
 
+typedef struct {
+    int type;
+    unsigned int len;
+    OBT_DATA_BUF data_buf;
+}OBT_MSG;
 #endif

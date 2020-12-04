@@ -17,24 +17,23 @@ BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len)
 {
 	char recvmsg[MAXLINE];
 	int ilen = 0;
-	cout << "begin recv" << endl;
+	cout << "========begin recv=========" << endl;
 	udpclient::getInstance()->recv(recvmsg, ilen);
-	cout << "recv " << ilen << " :" << recvmsg << endl;
-	TS msg;
-	memcpy(&msg, recvmsg, MAXLINE);
-	cout << "msg type: " << msg.type << endl;
-	cout << "msg length: " << msg.len << endl;
-	cout << "msg error code: " << *((unsigned int*)&(msg.pDataBuf[0])) << endl;
+	memcpy(&msgdat->type, &(recvmsg[0]), sizeof(int));
+	memcpy(&msgdat->len, &(recvmsg[4]), sizeof(int));
+	memcpy(msgdat->pDataBuf, &(recvmsg[8]), 2048);
+	print_ts(msgdat);
 	return true;
 }
 BOOL SendMsgToRREService(TS *msgdat, unsigned int len)
 {
 	char strmsg[MAXLINE];
-	memcpy(strmsg, &msgdat->type, sizeof(int));
-	memcpy(&strmsg[4], &msgdat->len, sizeof(int));
-	memcpy(&strmsg[8], &msgdat->pDataBuf, 2048);
-	bool br = udpclient::getInstance()->send(strmsg, sizeof(TS));
-	cout << "send result: " << br << endl;
+	memcpy(&(strmsg[0]), &msgdat->type, sizeof(int));
+	memcpy(&(strmsg[4]), &msgdat->len, sizeof(int));
+	memcpy(&(strmsg[8]), &msgdat->pDataBuf, 2048);
+	cout << "=========send msg==========" << endl;
+	print_ts(msgdat);
+	bool br = udpclient::getInstance()->send(strmsg, MAXLINE);
 	return true;
 }
 udpclient* udpclient::getInstance()
@@ -48,12 +47,16 @@ udpclient* udpclient::getInstance()
 }
 bool udpclient::send(const char* msg, int ilen)
 {
-	cout << "send len: " << ilen << endl;
-	return (write(m_isockfd, msg, ilen) > 0);		
+/*	cout << "send type: " << *((int*)&msg[0]) << endl;
+	cout << "send data buf len: " << *((int*)&msg[4]) << endl;
+	cout << "send error code: " << *((int*)&msg[8]) << endl;
+	cout << "send end flag: " << *((int*)&msg[12]) << endl;
+*/	return (write(m_isockfd, msg, ilen) > 0);		
 }
 bool udpclient::recv(char* msg, int& ilen)
 {
 	ilen = read(m_isockfd, msg, MAXLINE);
+	cout << "udp read ilen: " << ilen << endl;
 	return (ilen != -1);
 }
 udpclient::udpclient()
@@ -69,4 +72,32 @@ udpclient::udpclient()
 udpclient::~udpclient()
 {
 
+}
+
+void print_ts(TS* msg)
+{
+	cout << "msg type: " << msg->type << endl;
+	cout << "msg len: " << msg->len << endl;
+	cout << hex << "msg error code: 0x" <<*((int*)&msg->pDataBuf[0]) << endl;
+	cout << dec << "msg end flag: " << *((int*)&msg->pDataBuf[4]) << endl;
+	if(*((int*)&msg->pDataBuf[0]) != 0)
+	{
+		cout << "error code != 0, stop print" << endl;
+		return;
+	}
+	PARAMS_UNION* punion = (PARAMS_UNION*)&msg->pDataBuf[8];
+	
+	switch(msg->type)
+	{
+		case 25:
+			cout << "msg is functional address: " << punion->PARAMS_PROGRAMMING_CMD.isFunctionalAddress << endl;
+			break;
+		case 27:
+			cout << "union duration: " << punion->PARAMS_PROGRESS.ulDuration << endl;		
+			cout << "union progess: " << punion->PARAMS_PROGRESS.usProgress << endl;
+			break;
+		case 40:
+			cout << "msg did data[0]: " << punion->PARAMS_CONFIG_CMD.DIDData[0] << endl;
+			break;
+	}
 }

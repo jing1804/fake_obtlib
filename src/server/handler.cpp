@@ -13,11 +13,12 @@ void print_menu(OBT_MSG stmesg, char* strout)
 		case 25:
 		{
 			cout << "PARAMS_UNION, is func: " << stmesg.data_buf.msg.PARAMS_PROGRAMMING_CMD.isFunctionalAddress << endl;	
+			//construct send struct buf
 			stmesg.type = 32;
-			stmesg.len = 16;
-			cout << "menu:" << endl;
+			stmesg.len = 8;
+			cout << "++++++++++++menu+++++++++++" << endl;
 			cout << "1.success" << endl;
-			cout << "2.failure" << endl;
+			cout << "2.error code 0x7010" << endl;
 			cout << "please input:";
 			char cinput[100];
 			scanf("%s", cinput);
@@ -25,21 +26,69 @@ void print_menu(OBT_MSG stmesg, char* strout)
 			{
 				case '1':
 					stmesg.data_buf.error_code = 0;
-					rres_serialization(stmesg, strout);
 					break;
 				case '2':
 					stmesg.data_buf.error_code = 0x7010;
-					rres_serialization(stmesg, strout);
 					break;
 			}	
+			rres_serialization(stmesg, strout);
 			break;
 		}	
-
+		case 26:
+		{
+			stmesg.type = 27;
+			stmesg.len = 8 + sizeof(PARAMS_UNION);
+			stmesg.data_buf.error_code = 0;
+			stmesg.data_buf.end_flag = 1000;
+			cout << "++++++++++++menu+++++++++++" << endl;
+			cout << "1.10s, 50%" << endl;
+			cout << "2.20s, 100%" << endl;
+			cout << "3.error code 0x7010" << endl;
+			cout << "please input:";
+			char cinput[100];
+			scanf("%s", cinput);
+			switch(cinput[0])
+			{
+				case '1':
+					stmesg.data_buf.msg.PARAMS_PROGRESS.ulDuration = 10;
+					stmesg.data_buf.msg.PARAMS_PROGRESS.usProgress = 50;
+					break;
+				case '2':
+					stmesg.data_buf.msg.PARAMS_PROGRESS.ulDuration = 20;
+					stmesg.data_buf.msg.PARAMS_PROGRESS.usProgress = 100;
+					break;
+				case '3':
+					stmesg.data_buf.error_code = 0x7010;
+					break;
+			}	
+			rres_serialization(stmesg, strout);
+			break;
+		}	
+		case 40:
+		{	
+			cout << "PARAMS_UNION, did data[1]: " <<(char*)&(stmesg.data_buf.msg.PARAMS_CONFIG_CMD.DIDData[0]) << endl;
+			//construct send struct buf
+			stmesg.type = 46;
+			stmesg.len = 8;
+			cout << "++++++++++++menu+++++++++++" << endl;
+			cout << "1.success" << endl;
+			cout << "2.error code 0x7010" << endl;
+			cout << "please input:";
+			char cinput[100];
+			scanf("%s", cinput);
+			switch(cinput[0])
+			{
+				case '1':
+					stmesg.data_buf.error_code = 0;
+					break;
+				case '2':
+					stmesg.data_buf.error_code = 0x7010;
+					break;
+			}	
+			rres_serialization(stmesg, strout);
+			break;
+		}
 	}
-}
-string handler(OBT_MSG stmesg, char cinput, char* strout)
-{
-	return "hello world";
 }
 
 void rres_serialization(OBT_MSG stmesg, char* strout)
@@ -52,11 +101,11 @@ void rres_serialization(OBT_MSG stmesg, char* strout)
 	memcpy(&strout[16], &stmesg.data_buf.msg, sizeof(PARAMS_UNION));	
 }
 
-void rres_deserialization(char* strmesg, OBT_MSG stmesg)
+void rres_deserialization(char* strmesg, OBT_MSG* stmesg)
 {
-	memcpy(&stmesg.type, strmesg, sizeof(int));
-	memcpy(&stmesg.len, &(strmesg[4]), sizeof(int));
-	memcpy(&stmesg.data_buf.error_code, &(strmesg[8]), sizeof(int));
-	memcpy(&stmesg.data_buf.end_flag, &(strmesg[12]), sizeof(int));
-	memcpy(&stmesg.data_buf.msg, &(strmesg[16]), sizeof(PARAMS_UNION));
+	memcpy(&stmesg->type, &(strmesg[0]), sizeof(int));
+	memcpy(&stmesg->len,  &(strmesg[4]), sizeof(int));
+	memcpy(&stmesg->data_buf.error_code, &(strmesg[8]), sizeof(int));
+	memcpy(&stmesg->data_buf.end_flag, &(strmesg[12]), sizeof(int));
+	memcpy(&stmesg->data_buf.msg, &(strmesg[16]), sizeof(PARAMS_UNION));
 }

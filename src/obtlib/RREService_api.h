@@ -112,4 +112,5 @@ typedef struct {
     unsigned int len;
     OBT_DATA_BUF data_buf;
 }OBT_MSG;
+void print_ts(TS* msg);
 #endif

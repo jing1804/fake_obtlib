@@ -36,6 +36,12 @@ typedef struct
 #define REMOTE_CONFIG_DID_LENGTH 32
 #define REMOTE_CONFIG_FEATURE_CODE_LEN 256
 #define MAX_VIN_LENGTH 17
+#define CLI_SEND_MSG 1
+#define CLI_RECV_MSG 2
+#define SER_BLOCK_MSG 3
+#define SER_NODATA_MSG 4
+#define SER_NORMAL_MSG 6
+ 
 typedef union PARAMS_UNION
 {
     struct {

@@ -1,5 +1,5 @@
 #include "udpserver.h"
-#define MAXLINE 2056
+#define MAXLINE 2058
 #define SERV_PORT 8888
 udpserver::udpserver()
 {
@@ -34,8 +34,9 @@ void udpserver::run()
 		memset(strout, 0, MAXLINE);
 		n = recvfrom(m_isockfd, strmesg, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, &len);
 		OBT_MSG stmesg;
-		rres_deserialization(strmesg, &stmesg);
-		print_menu(stmesg, strout);
+		short stype;
+		rres_deserialization(strmesg, &stmesg, &stype);
+		print_menu(&stmesg, &stype, strout);
 		sendto(m_isockfd, strout, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, len);
 	}
 }

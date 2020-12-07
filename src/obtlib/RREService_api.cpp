@@ -1,7 +1,7 @@
 #include "RREService_api.h"
 #define SERV_PORT 8888
-#define SERV_IP "192.168.43.142"
-#define MAXLINE 2056 
+#define SERV_IP "127.0.0.1"
+#define MAXLINE 2058
 #include <iostream>
 using namespace std;
 BOOL RREServiceInit(ECUINFOSTR info, obt_log_callback_b cb)
@@ -13,27 +13,60 @@ void RREServiceDeinit(void)
 {
 
 }
-BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len)
-{
-	char recvmsg[MAXLINE];
-	int ilen = 0;
-	cout << "========begin recv=========" << endl;
-	udpclient::getInstance()->recv(recvmsg, ilen);
-	memcpy(&msgdat->type, &(recvmsg[0]), sizeof(int));
-	memcpy(&msgdat->len, &(recvmsg[4]), sizeof(int));
-	memcpy(msgdat->pDataBuf, &(recvmsg[8]), 2048);
-	print_ts(msgdat);
-	return true;
-}
 BOOL SendMsgToRREService(TS *msgdat, unsigned int len)
 {
+	short msgT = CLI_SEND_MSG;
 	char strmsg[MAXLINE];
-	memcpy(&(strmsg[0]), &msgdat->type, sizeof(int));
-	memcpy(&(strmsg[4]), &msgdat->len, sizeof(int));
-	memcpy(&(strmsg[8]), &msgdat->pDataBuf, 2048);
+	memcpy(&(strmsg[0]), &msgT, sizeof(short));
+	memcpy(&(strmsg[2]), &msgdat->type, sizeof(int));
+	memcpy(&(strmsg[6]), &msgdat->len, sizeof(int));
+	memcpy(&(strmsg[10]), &msgdat->pDataBuf, 2048);
 	cout << "=========send msg==========" << endl;
 	print_ts(msgdat);
 	bool br = udpclient::getInstance()->send(strmsg, MAXLINE);
+	if(br)
+	{
+		int ilen = 0;
+		udpclient::getInstance()->recv(strmsg, ilen); 
+		msgT = *((short*)&(strmsg[0]));
+		if(msgT == SER_BLOCK_MSG)
+		{
+			sleep(10);
+			return true;	
+		}
+		else if(msgT == SER_NODATA_MSG)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+BOOL RecvMsgFromRREService(TS *msgdat, unsigned int* len)
+{
+	//short msgT = CLI_RECV_MSG;
+	short msgT = CLI_RECV_MSG;
+	char recvmsg[MAXLINE];
+	memcpy(&(recvmsg[0]), &msgT, sizeof(short));
+	udpclient::getInstance()->send(recvmsg, MAXLINE);
+	int ilen = 0;
+	cout << "========begin recv=========" << endl;
+	udpclient::getInstance()->recv(recvmsg, ilen);
+	memcpy(&msgT, &(recvmsg[0]), sizeof(short));
+	if(msgT == SER_BLOCK_MSG)
+	{
+		sleep(10);
+	}
+	else if(msgT == SER_NODATA_MSG)
+	{
+		return false;
+	}
+	else if(msgT == SER_NORMAL_MSG)
+	{
+		memcpy(&msgdat->type, &(recvmsg[2]), sizeof(int));
+		memcpy(&msgdat->len, &(recvmsg[6]), sizeof(int));
+		memcpy(msgdat->pDataBuf, &(recvmsg[10]), 2048);
+		print_ts(msgdat);
+	}
 	return true;
 }
 udpclient* udpclient::getInstance()
@@ -47,11 +80,7 @@ udpclient* udpclient::getInstance()
 }
 bool udpclient::send(const char* msg, int ilen)
 {
-/*	cout << "send type: " << *((int*)&msg[0]) << endl;
-	cout << "send data buf len: " << *((int*)&msg[4]) << endl;
-	cout << "send error code: " << *((int*)&msg[8]) << endl;
-	cout << "send end flag: " << *((int*)&msg[12]) << endl;
-*/	return (write(m_isockfd, msg, ilen) > 0);		
+	return (write(m_isockfd, msg, ilen) > 0);		
 }
 bool udpclient::recv(char* msg, int& ilen)
 {

@@ -122,6 +122,8 @@ BOOL	src/obtlib/common_type.h	24;"	d
 BOOL	src/server/c.h	24;"	d
 CHAR	src/obtlib/common_type.h	28;"	d
 CHAR	src/server/c.h	28;"	d
+CLI_RECV_MSG	src/obtlib/RREService_api.h	40;"	d
+CLI_SEND_MSG	src/obtlib/RREService_api.h	39;"	d
 CMAKE_BINARY_DIR	src/build/Makefile	/^CMAKE_BINARY_DIR = \/home\/zhang\/workroom\/fake_obtlib\/src\/build$/;"	m
 CMAKE_BINARY_DIR	src/build/obtlib/Makefile	/^CMAKE_BINARY_DIR = \/home\/zhang\/workroom\/fake_obtlib\/src\/build$/;"	m
 CMAKE_BINARY_DIR	src/obtlib/build/Makefile	/^CMAKE_BINARY_DIR = \/home\/zhang\/workroom\/fake_obtlib\/src\/obtlib\/build$/;"	m
@@ -1397,6 +1399,9 @@ RecvMsgFromRREService	src/obtlib/RREService_api.cpp	/^BOOL RecvMsgFromRREService
 SERV_IP	src/obtlib/RREService_api.cpp	3;"	d	file:
 SERV_PORT	src/obtlib/RREService_api.cpp	2;"	d	file:
 SERV_PORT	src/server/udpserver.cpp	3;"	d	file:
+SER_BLOCK_MSG	src/obtlib/RREService_api.h	41;"	d
+SER_NODATA_MSG	src/obtlib/RREService_api.h	42;"	d
+SER_NORMAL_MSG	src/obtlib/RREService_api.h	43;"	d
 SHELL	src/build/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	src/build/obtlib/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	src/obtlib/build/Makefile	/^SHELL = \/bin\/sh$/;"	m
@@ -1534,7 +1539,6 @@ features	src/obtlib/build/CMakeFiles/feature_tests.cxx	/^  const char features[]
 features	src/server/build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	src/server/build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
 getInstance	src/obtlib/RREService_api.cpp	/^udpclient* udpclient::getInstance()$/;"	f	class:udpclient
-handler	src/server/handler.cpp	/^string handler(OBT_MSG stmesg, char cinput, char* strout)$/;"	f
 info_arch	src/build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	src/build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	src/obtlib/build/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
@@ -1649,7 +1653,8 @@ port	src/obtlib/RREService_api.h	/^	unsigned int port;$/;"	m	struct:__anon2
 port	src/server/r.h	/^	unsigned int  port;$/;"	m	struct:__anon10
 ppfFilePath	src/obtlib/RREService_api.h	/^        CHAR ppfFilePath[FILEPATH_MAX_LENGTH];                     \/\/ ppf�ļ�·��$/;"	m	struct:PARAMS_UNION::__anon3
 ppfFilePath	src/server/r.h	/^        CHAR ppfFilePath[FILEPATH_MAX_LENGTH];                     \/\/ ppf�ļ�·��$/;"	m	struct:PARAMS_UNION::__anon11
-print_menu	src/server/handler.cpp	/^void print_menu(OBT_MSG stmesg, char* strout)$/;"	f
+print_menu	src/server/handler.cpp	/^void print_menu(OBT_MSG* stmesg, short* stype, char* strout)$/;"	f
+print_msg	src/server/handler.cpp	/^void print_msg(OBT_MSG* stmesg, short* stype)$/;"	f
 print_ts	src/obtlib/RREService_api.cpp	/^void print_ts(TS* msg)$/;"	f
 qnxnto	src/build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	src/build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
@@ -1660,8 +1665,8 @@ qnxnto	src/obtlib/build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^
 qnxnto	src/server/build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	src/server/build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 recv	src/obtlib/RREService_api.cpp	/^bool udpclient::recv(char* msg, int& ilen)$/;"	f	class:udpclient
-rres_deserialization	src/server/handler.cpp	/^void rres_deserialization(char* strmesg, OBT_MSG* stmesg)$/;"	f
-rres_serialization	src/server/handler.cpp	/^void rres_serialization(OBT_MSG stmesg, char* strout)$/;"	f
+rres_deserialization	src/server/handler.cpp	/^void rres_deserialization(char* strmesg, OBT_MSG* stmesg, short* stype)$/;"	f
+rres_serialization	src/server/handler.cpp	/^void rres_serialization(OBT_MSG* stmesg, short* stype, char* strout)$/;"	f
 run	src/server/udpserver.cpp	/^void udpserver::run()$/;"	f	class:udpserver
 saddr	src/obtlib/RREService_api.h	/^	unsigned char saddr[2];$/;"	m	struct:__anon2
 saddr	src/server/r.h	/^	unsigned char saddr[2];$/;"	m	struct:__anon10

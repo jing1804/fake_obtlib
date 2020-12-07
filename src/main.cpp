@@ -47,8 +47,13 @@ int main(int argc, char** argv){
 			return 0;
 	}
 	RREServiceInit(info, cb);
-	SendMsgToRREService(&msg, iLen);
-	RecvMsgFromRREService(&msg, &iLen);
+	bool ru;
+	do{
+		ru = SendMsgToRREService(&msg, iLen);
+		cout << "send ru: " << ru << endl;
+	}while(!ru);
+	ru = RecvMsgFromRREService(&msg, &iLen);
+	cout << "recv ru: " << ru << endl;
 	RREServiceDeinit();
 	return 0;
 }

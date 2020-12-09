@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/zhang/workroom/fake_obtlib/src/obtlib/RREService_api.h
+/home/zhang/workroom/fake_obtlib/src/client/obtlib/RREService_api.h
 sys/types.h
 -
 sys/socket.h
@@ -24,9 +24,9 @@ unistd.h
 arpa/inet.h
 -
 common_type.h
-/home/zhang/workroom/fake_obtlib/src/obtlib/common_type.h
+/home/zhang/workroom/fake_obtlib/src/client/obtlib/common_type.h
 
-/home/zhang/workroom/fake_obtlib/src/obtlib/common_type.h
+/home/zhang/workroom/fake_obtlib/src/client/obtlib/common_type.h
 stdio.h
 -
 stdlib.h

@@ -22,7 +22,6 @@ udpserver::~udpserver()
 
 void udpserver::run()
 {
-	int n;
 	socklen_t len;
 	char strmesg[MAXLINE];
 	char strout[MAXLINE];
@@ -32,7 +31,7 @@ void udpserver::run()
 		cout << "========begin recv=========" << endl;	
 		len = sizeof(m_clieaddr);
 		memset(strout, 0, MAXLINE);
-		n = recvfrom(m_isockfd, strmesg, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, &len);
+		recvfrom(m_isockfd, strmesg, MAXLINE, 0, (struct sockaddr *)&m_clieaddr, &len);
 		OBT_MSG stmesg;
 		short stype;
 		rres_deserialization(strmesg, &stmesg, &stype);

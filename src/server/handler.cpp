@@ -39,6 +39,42 @@ void print_msg(OBT_MSG* stmesg, short* stype)
 	cout << "msg end flag: " << stmesg->data_buf.end_flag << endl;
 	switch(stmesg->type)
 	{
+		case 15:
+			{
+				unsigned char* parr = &(stmesg->data_buf.msg.PARAMS_ARRAY.arr[0]);
+				cout << hex << "diagnose type: 0x" << (unsigned int)(parr[0]) << endl;
+				if(parr[0] == 0x10)
+				{
+					cout << dec << "session: " << (unsigned int)(parr[1]) << endl;	
+				}
+				else if(parr[0] == 0x22)
+				{
+					cout << hex << "did address: 0x" << (unsigned int)(parr[1]) << (unsigned int)(parr[2]) << endl;
+				}
+				break;
+			}
+		case 16:
+			{
+				unsigned char* parr = &(stmesg->data_buf.msg.PARAMS_ARRAY.arr[0]);
+				cout << hex << "diagnose result: 0x" << (unsigned int)(parr[0]) << endl;
+				if(parr[0] == 0x50)
+        	    {
+        	        cout << dec << "session: " << (unsigned int)(parr[1]) << endl;
+        	    }       
+        	    else if(parr[0] == 0x62)
+        	    {
+        	        cout << hex << "did address: 0x" << (unsigned int)(parr[1]) << (unsigned int)(parr[2]) << (unsigned int)(parr[3]) << (unsigned int)(parr[4]) << (unsigned int)(parr[5])  << endl;
+        	    }
+        	    else if(parr[0] == 0x7f && parr[1] == 0x10)
+        	    {
+        	        cout << hex << "diagnose 0x10 error, tag: 0x" << (unsigned int)(parr[2]) << endl;
+        	    }
+        	    else if(parr[0] == 0x7f && parr[1] == 0x22)
+        	    {
+        	        cout << hex << "diagnose 0x22 error, tag: 0x" << (unsigned int)(parr[2]) << endl;
+        	    }
+            	break;	
+			}
 		case 25:
 		{
 			cout << "PARAMS_UNION, is func: " << stmesg->data_buf.msg.PARAMS_PROGRAMMING_CMD.isFunctionalAddress << endl;	
@@ -56,15 +92,16 @@ void print_msg(OBT_MSG* stmesg, short* stype)
 			break;
 		} 
 	}
+	cout.unsetf(ios::hex);
 }
 void print_menu(OBT_MSG* stmesg, short* stype, char* strout)
 {
 	if(*stype == CLI_SEND_MSG)
 	{
-	print_msg(stmesg, stype);
-	cout << "++++++++++++menu+++++++++++" << endl;
-	cout << "1.block 10s" << endl;
-	cout << "2.return false" << endl;
+		print_msg(stmesg, stype);
+		cout << "++++++++++++menu+++++++++++" << endl;
+		cout << "1.block 10s" << endl;
+		cout << "2.return false" << endl;
 		short sReturn;
 		cout << "3.return true" << endl;
 		cout << "please input:";
@@ -86,17 +123,93 @@ void print_menu(OBT_MSG* stmesg, short* stype, char* strout)
 	}
 	else if(*stype == CLI_RECV_MSG)
 	{
-	cout << "++++++++++++menu+++++++++++" << endl;
-	cout << "1.block 10s" << endl;
-	cout << "2.return false" << endl;
+		cout << "++++++++++++menu+++++++++++" << endl;
+		cout << "1.block 10s" << endl;
+		cout << "2.return false" << endl;
 		short sReturn;
 		OBT_MSG stretu; 
+        stretu.data_buf.end_flag = 1000;
+        stretu.data_buf.error_code = 0;
+		stretu.len = 8;
 		char cinput[100];
 		switch(g_stmesg.type)
 		{
+			case 15:
+				stretu.type = 16;
+				cout << "3.diagnose success" << endl;
+				cout << "4.diagnose failure" << endl;
+				cout << "5.error code 0x7010" << endl;
+				cout << "please input:";
+				scanf("%s", cinput);
+				switch(cinput[0])
+				{
+					case '1':
+					{
+						sReturn = SER_BLOCK_MSG;
+						break;
+					}
+					case '2':
+					{
+						sReturn = SER_NODATA_MSG;
+						break;
+					}
+					case '3':
+					{
+						sReturn = SER_NORMAL_MSG;
+						unsigned char* pin = g_stmesg.data_buf.msg.PARAMS_ARRAY.arr;
+						unsigned char* pretu = stretu.data_buf.msg.PARAMS_ARRAY.arr;
+						if(pin[0] == 0x10)
+						{
+							pretu[0] = 0x50;
+							pretu[1] = pin[1];	
+							stretu.len = 10;
+						}
+						else if(pin[0] == 0x22)
+						{
+							cout << "0x22 successful" << endl;
+							pretu[0] = 0x62;
+							pretu[1] = pin[1];
+							pretu[2] = pin[2];
+							pretu[3] = 0xff;
+							pretu[4] = 0xff;
+							pretu[5] = 0xff;
+							stretu.len = 14;
+						}
+						break;
+					}
+					case '4':
+					{
+						sReturn = SER_NORMAL_MSG;
+						unsigned char* pin = g_stmesg.data_buf.msg.PARAMS_ARRAY.arr;
+						unsigned char* pretu = stretu.data_buf.msg.PARAMS_ARRAY.arr;
+						stretu.len = 11;
+						if(pin[0] == 0x10)
+						{
+							pretu[0] = 0x7f;
+							pretu[1] = 0x10;
+							pretu[2] = 0x7f;
+							stretu.len = 11;
+						}
+						else if(pin[0] == 0x22)
+						{
+							cout << "0x22 failure" << endl;
+							pretu[0] = 0x7f;
+							pretu[1] = 0x22;
+							pretu[2] = 0x7f;
+							stretu.len = 11;
+						}
+						break;
+					}
+					case '5':
+					{
+						sReturn = SER_NORMAL_MSG;	
+						stretu.data_buf.error_code = 0x7010;
+						break;
+					}
+				}
+				break;
 			case 25:
 				stretu.type = 32;
-				stretu.len = 8;
 				cout << "3.success" << endl;
 				cout << "4.error code 0x7010" << endl;
 				cout << "please input:";
@@ -123,7 +236,6 @@ void print_menu(OBT_MSG* stmesg, short* stype, char* strout)
 				stretu.type = 27;
 				stretu.len = 8 + sizeof(PARAMS_UNION);
 				stretu.data_buf.error_code = 0;
-                stretu.data_buf.end_flag = 1000;
 				cout << "3.10s, 50%" << endl;
                 cout << "4.20s, 100%" << endl;
                 cout << "5.error code 0x7010" << endl;
@@ -152,7 +264,6 @@ void print_menu(OBT_MSG* stmesg, short* stype, char* strout)
 				break;
 			case 40:
 				stretu.type = 46;
-				stretu.len = 8;
 				cout << "3.success" << endl;
 				cout << "4.error code 0x7010" << endl;
 				cout << "please input:";

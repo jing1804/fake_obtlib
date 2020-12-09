@@ -60,94 +60,224 @@ CMAKE_SOURCE_DIR = /home/zhang/workroom/fake_obtlib/src
 CMAKE_BINARY_DIR = /home/zhang/workroom/fake_obtlib/src/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/obt_test.dir
+# Directory level rules for directory client
+
+# Convenience name for "all" pass in the directory.
+client/all: client/CMakeFiles/client.dir/all
+client/all: client/obtlib/all
+
+.PHONY : client/all
+
+# Convenience name for "clean" pass in the directory.
+client/clean: client/CMakeFiles/client.dir/clean
+client/clean: client/obtlib/clean
+
+.PHONY : client/clean
+
+# Convenience name for "preinstall" pass in the directory.
+client/preinstall: client/obtlib/preinstall
+
+.PHONY : client/preinstall
+
+#=============================================================================
+# Target rules for target client/CMakeFiles/client.dir
 
 # All Build rule for target.
-CMakeFiles/obt_test.dir/all: obtlib/CMakeFiles/RREService.dir/all
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/depend
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/workroom/fake_obtlib/src/build/CMakeFiles --progress-num=3,4 "Built target obt_test"
-.PHONY : CMakeFiles/obt_test.dir/all
+client/CMakeFiles/client.dir/all: client/obtlib/CMakeFiles/RREService.dir/all
+	$(MAKE) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/depend
+	$(MAKE) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/workroom/fake_obtlib/src/build/CMakeFiles --progress-num=3,4 "Built target client"
+.PHONY : client/CMakeFiles/client.dir/all
 
 # Include target in all.
-all: CMakeFiles/obt_test.dir/all
+all: client/CMakeFiles/client.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/obt_test.dir/rule: cmake_check_build_system
+client/CMakeFiles/client.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/obt_test.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 client/CMakeFiles/client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 0
-.PHONY : CMakeFiles/obt_test.dir/rule
+.PHONY : client/CMakeFiles/client.dir/rule
 
 # Convenience name for target.
-obt_test: CMakeFiles/obt_test.dir/rule
+client: client/CMakeFiles/client.dir/rule
 
-.PHONY : obt_test
-
-# clean rule for target.
-CMakeFiles/obt_test.dir/clean:
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/clean
-.PHONY : CMakeFiles/obt_test.dir/clean
+.PHONY : client
 
 # clean rule for target.
-clean: CMakeFiles/obt_test.dir/clean
+client/CMakeFiles/client.dir/clean:
+	$(MAKE) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/clean
+.PHONY : client/CMakeFiles/client.dir/clean
+
+# clean rule for target.
+clean: client/CMakeFiles/client.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory obtlib
+# Directory level rules for directory client/obtlib
 
 # Convenience name for "all" pass in the directory.
-obtlib/all: obtlib/CMakeFiles/RREService.dir/all
+client/obtlib/all: client/obtlib/CMakeFiles/RREService.dir/all
 
-.PHONY : obtlib/all
+.PHONY : client/obtlib/all
 
 # Convenience name for "clean" pass in the directory.
-obtlib/clean: obtlib/CMakeFiles/RREService.dir/clean
+client/obtlib/clean: client/obtlib/CMakeFiles/RREService.dir/clean
 
-.PHONY : obtlib/clean
+.PHONY : client/obtlib/clean
 
 # Convenience name for "preinstall" pass in the directory.
-obtlib/preinstall:
+client/obtlib/preinstall:
 
-.PHONY : obtlib/preinstall
+.PHONY : client/obtlib/preinstall
 
 #=============================================================================
-# Target rules for target obtlib/CMakeFiles/RREService.dir
+# Target rules for target client/obtlib/CMakeFiles/RREService.dir
 
 # All Build rule for target.
-obtlib/CMakeFiles/RREService.dir/all:
-	$(MAKE) -f obtlib/CMakeFiles/RREService.dir/build.make obtlib/CMakeFiles/RREService.dir/depend
-	$(MAKE) -f obtlib/CMakeFiles/RREService.dir/build.make obtlib/CMakeFiles/RREService.dir/build
+client/obtlib/CMakeFiles/RREService.dir/all:
+	$(MAKE) -f client/obtlib/CMakeFiles/RREService.dir/build.make client/obtlib/CMakeFiles/RREService.dir/depend
+	$(MAKE) -f client/obtlib/CMakeFiles/RREService.dir/build.make client/obtlib/CMakeFiles/RREService.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/workroom/fake_obtlib/src/build/CMakeFiles --progress-num=1,2 "Built target RREService"
-.PHONY : obtlib/CMakeFiles/RREService.dir/all
+.PHONY : client/obtlib/CMakeFiles/RREService.dir/all
 
 # Include target in all.
-all: obtlib/CMakeFiles/RREService.dir/all
+all: client/obtlib/CMakeFiles/RREService.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-obtlib/CMakeFiles/RREService.dir/rule: cmake_check_build_system
+client/obtlib/CMakeFiles/RREService.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 obtlib/CMakeFiles/RREService.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 client/obtlib/CMakeFiles/RREService.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 0
-.PHONY : obtlib/CMakeFiles/RREService.dir/rule
+.PHONY : client/obtlib/CMakeFiles/RREService.dir/rule
 
 # Convenience name for target.
-RREService: obtlib/CMakeFiles/RREService.dir/rule
+RREService: client/obtlib/CMakeFiles/RREService.dir/rule
 
 .PHONY : RREService
 
 # clean rule for target.
-obtlib/CMakeFiles/RREService.dir/clean:
-	$(MAKE) -f obtlib/CMakeFiles/RREService.dir/build.make obtlib/CMakeFiles/RREService.dir/clean
-.PHONY : obtlib/CMakeFiles/RREService.dir/clean
+client/obtlib/CMakeFiles/RREService.dir/clean:
+	$(MAKE) -f client/obtlib/CMakeFiles/RREService.dir/build.make client/obtlib/CMakeFiles/RREService.dir/clean
+.PHONY : client/obtlib/CMakeFiles/RREService.dir/clean
 
 # clean rule for target.
-clean: obtlib/CMakeFiles/RREService.dir/clean
+clean: client/obtlib/CMakeFiles/RREService.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory server
+
+# Convenience name for "all" pass in the directory.
+server/all: server/CMakeFiles/udpserver.dir/all
+
+.PHONY : server/all
+
+# Convenience name for "clean" pass in the directory.
+server/clean: server/CMakeFiles/udpserver.dir/clean
+
+.PHONY : server/clean
+
+# Convenience name for "preinstall" pass in the directory.
+server/preinstall:
+
+.PHONY : server/preinstall
+
+#=============================================================================
+# Target rules for target server/CMakeFiles/udpserver.dir
+
+# All Build rule for target.
+server/CMakeFiles/udpserver.dir/all:
+	$(MAKE) -f server/CMakeFiles/udpserver.dir/build.make server/CMakeFiles/udpserver.dir/depend
+	$(MAKE) -f server/CMakeFiles/udpserver.dir/build.make server/CMakeFiles/udpserver.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/workroom/fake_obtlib/src/build/CMakeFiles --progress-num=5,6,7,8 "Built target udpserver"
+.PHONY : server/CMakeFiles/udpserver.dir/all
+
+# Include target in all.
+all: server/CMakeFiles/udpserver.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+server/CMakeFiles/udpserver.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 server/CMakeFiles/udpserver.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 0
+.PHONY : server/CMakeFiles/udpserver.dir/rule
+
+# Convenience name for target.
+udpserver: server/CMakeFiles/udpserver.dir/rule
+
+.PHONY : udpserver
+
+# clean rule for target.
+server/CMakeFiles/udpserver.dir/clean:
+	$(MAKE) -f server/CMakeFiles/udpserver.dir/build.make server/CMakeFiles/udpserver.dir/clean
+.PHONY : server/CMakeFiles/udpserver.dir/clean
+
+# clean rule for target.
+clean: server/CMakeFiles/udpserver.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory gtest
+
+# Convenience name for "all" pass in the directory.
+gtest/all: gtest/CMakeFiles/utest.dir/all
+
+.PHONY : gtest/all
+
+# Convenience name for "clean" pass in the directory.
+gtest/clean: gtest/CMakeFiles/utest.dir/clean
+
+.PHONY : gtest/clean
+
+# Convenience name for "preinstall" pass in the directory.
+gtest/preinstall:
+
+.PHONY : gtest/preinstall
+
+#=============================================================================
+# Target rules for target gtest/CMakeFiles/utest.dir
+
+# All Build rule for target.
+gtest/CMakeFiles/utest.dir/all:
+	$(MAKE) -f gtest/CMakeFiles/utest.dir/build.make gtest/CMakeFiles/utest.dir/depend
+	$(MAKE) -f gtest/CMakeFiles/utest.dir/build.make gtest/CMakeFiles/utest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/workroom/fake_obtlib/src/build/CMakeFiles --progress-num=9,10,11,12,13 "Built target utest"
+.PHONY : gtest/CMakeFiles/utest.dir/all
+
+# Include target in all.
+all: gtest/CMakeFiles/utest.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+gtest/CMakeFiles/utest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/utest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/workroom/fake_obtlib/src/build/CMakeFiles 0
+.PHONY : gtest/CMakeFiles/utest.dir/rule
+
+# Convenience name for target.
+utest: gtest/CMakeFiles/utest.dir/rule
+
+.PHONY : utest
+
+# clean rule for target.
+gtest/CMakeFiles/utest.dir/clean:
+	$(MAKE) -f gtest/CMakeFiles/utest.dir/build.make gtest/CMakeFiles/utest.dir/clean
+.PHONY : gtest/CMakeFiles/utest.dir/clean
+
+# clean rule for target.
+clean: gtest/CMakeFiles/utest.dir/clean
 
 .PHONY : clean
 

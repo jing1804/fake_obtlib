@@ -12,5 +12,5 @@ add_executable(udpserver
 target_include_directories(udpserver
 							PUBLIC
 							${PROJECT_SOURCE_DIR}
-							/home/zhang/workroom/fake_obtlib/src/obtlib
+							/home/zhang/workroom/fake_obtlib/src/client/obtlib
 )

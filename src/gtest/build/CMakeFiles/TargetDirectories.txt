@@ -1,0 +1,4 @@
+/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/test.dir
+/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/edit_cache.dir
+/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/rebuild_cache.dir
+/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/utest.dir

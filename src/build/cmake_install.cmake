@@ -34,7 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/zhang/workroom/fake_obtlib/src/build/obtlib/cmake_install.cmake")
+  include("/home/zhang/workroom/fake_obtlib/src/build/client/cmake_install.cmake")
+  include("/home/zhang/workroom/fake_obtlib/src/build/server/cmake_install.cmake")
+  include("/home/zhang/workroom/fake_obtlib/src/build/gtest/cmake_install.cmake")
 
 endif()
 

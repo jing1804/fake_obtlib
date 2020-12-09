@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named obt_test
+# Target rules for targets named client
 
 # Build rule for target.
-obt_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 obt_test
-.PHONY : obt_test
+client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-obt_test/fast:
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/build
-.PHONY : obt_test/fast
+client/fast:
+	$(MAKE) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/build
+.PHONY : client/fast
 
 #=============================================================================
 # Target rules for targets named RREService
@@ -133,35 +133,34 @@ RREService: cmake_check_build_system
 
 # fast build rule for target.
 RREService/fast:
-	$(MAKE) -f obtlib/CMakeFiles/RREService.dir/build.make obtlib/CMakeFiles/RREService.dir/build
+	$(MAKE) -f client/obtlib/CMakeFiles/RREService.dir/build.make client/obtlib/CMakeFiles/RREService.dir/build
 .PHONY : RREService/fast
 
-main.o: main.cpp.o
+#=============================================================================
+# Target rules for targets named udpserver
 
-.PHONY : main.o
+# Build rule for target.
+udpserver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 udpserver
+.PHONY : udpserver
 
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/main.cpp.o
-.PHONY : main.cpp.o
+# fast build rule for target.
+udpserver/fast:
+	$(MAKE) -f server/CMakeFiles/udpserver.dir/build.make server/CMakeFiles/udpserver.dir/build
+.PHONY : udpserver/fast
 
-main.i: main.cpp.i
+#=============================================================================
+# Target rules for targets named utest
 
-.PHONY : main.i
+# Build rule for target.
+utest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 utest
+.PHONY : utest
 
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/obt_test.dir/build.make CMakeFiles/obt_test.dir/main.cpp.s
-.PHONY : main.cpp.s
+# fast build rule for target.
+utest/fast:
+	$(MAKE) -f gtest/CMakeFiles/utest.dir/build.make gtest/CMakeFiles/utest.dir/build
+.PHONY : utest/fast
 
 # Help Target
 help:
@@ -171,11 +170,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... obt_test"
+	@echo "... client"
 	@echo "... RREService"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... udpserver"
+	@echo "... utest"
 .PHONY : help
 
 

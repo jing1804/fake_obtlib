@@ -1,0 +1,6 @@
+/home/zhang/workroom/fake_obtlib/src/client/build/CMakeFiles/rebuild_cache.dir
+/home/zhang/workroom/fake_obtlib/src/client/build/CMakeFiles/edit_cache.dir
+/home/zhang/workroom/fake_obtlib/src/client/build/CMakeFiles/client.dir
+/home/zhang/workroom/fake_obtlib/src/client/build/obtlib/CMakeFiles/edit_cache.dir
+/home/zhang/workroom/fake_obtlib/src/client/build/obtlib/CMakeFiles/rebuild_cache.dir
+/home/zhang/workroom/fake_obtlib/src/client/build/obtlib/CMakeFiles/RREService.dir

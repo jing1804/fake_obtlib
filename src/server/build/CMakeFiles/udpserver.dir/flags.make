@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wall -g -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zhang/workroom/fake_obtlib/src/server -I/home/zhang/workroom/fake_obtlib/src/obtlib 
+CXX_INCLUDES = -I/home/zhang/workroom/fake_obtlib/src/server -I/home/zhang/workroom/fake_obtlib/src/client/obtlib 
 

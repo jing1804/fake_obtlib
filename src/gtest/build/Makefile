@@ -188,33 +188,6 @@ home/zhang/workroom/fake_obtlib/src/server/handler.cpp.s:
 	$(MAKE) -f CMakeFiles/utest.dir/build.make CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/handler.cpp.s
 .PHONY : home/zhang/workroom/fake_obtlib/src/server/handler.cpp.s
 
-home/zhang/workroom/fake_obtlib/src/server/udpserver.o: home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o
-
-.PHONY : home/zhang/workroom/fake_obtlib/src/server/udpserver.o
-
-# target to build an object file
-home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o:
-	$(MAKE) -f CMakeFiles/utest.dir/build.make CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o
-.PHONY : home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o
-
-home/zhang/workroom/fake_obtlib/src/server/udpserver.i: home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.i
-
-.PHONY : home/zhang/workroom/fake_obtlib/src/server/udpserver.i
-
-# target to preprocess a source file
-home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.i:
-	$(MAKE) -f CMakeFiles/utest.dir/build.make CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.i
-.PHONY : home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.i
-
-home/zhang/workroom/fake_obtlib/src/server/udpserver.s: home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.s
-
-.PHONY : home/zhang/workroom/fake_obtlib/src/server/udpserver.s
-
-# target to generate assembly for a file
-home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.s:
-	$(MAKE) -f CMakeFiles/utest.dir/build.make CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.s
-.PHONY : home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.s
-
 test.o: test.cpp.o
 
 .PHONY : test.o
@@ -258,9 +231,6 @@ help:
 	@echo "... home/zhang/workroom/fake_obtlib/src/server/handler.o"
 	@echo "... home/zhang/workroom/fake_obtlib/src/server/handler.i"
 	@echo "... home/zhang/workroom/fake_obtlib/src/server/handler.s"
-	@echo "... home/zhang/workroom/fake_obtlib/src/server/udpserver.o"
-	@echo "... home/zhang/workroom/fake_obtlib/src/server/udpserver.i"
-	@echo "... home/zhang/workroom/fake_obtlib/src/server/udpserver.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

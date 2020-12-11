@@ -17,4 +17,7 @@ gtest/CMakeFiles/utest.dir/__/server/udpserver.cpp.o
  /home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp
  /home/zhang/workroom/fake_obtlib/src/server/udpserver.h
 gtest/CMakeFiles/utest.dir/test.cpp.o
+ ../gtest/../client/obtlib/RREService_api.h
+ ../gtest/../client/obtlib/common_type.h
+ ../gtest/../server/handler.h
  /home/zhang/workroom/fake_obtlib/src/gtest/test.cpp

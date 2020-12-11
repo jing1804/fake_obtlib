@@ -4,7 +4,7 @@
 #define MAXLINE 2058
 #include <iostream>
 using namespace std;
-enum ObtibTcpStatus
+enum ObtLibTcpStatus
 {
 	OBT_LIB_TCP_INIT = 0, 
 	OBT_LIB_TCP_IDLE = 1,

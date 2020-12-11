@@ -6,7 +6,8 @@ add_definitions("-Wall -g")
 add_executable(utest test.cpp 
 					${PROJECT_SOURCE_DIR}/../client/obtlib/RREService_api.cpp
 					${PROJECT_SOURCE_DIR}/../server/handler.cpp
-					${PROJECT_SOURCE_DIR}/../server/udpserver.cpp
+				#	${PROJECT_SOURCE_DIR}/../server/handler.cpp
+				#	${PROJECT_SOURCE_DIR}/../server/udpserver.cpp
 )
 target_include_directories(utest PUBLIC 
 							${PROJECT_SOURCE_DIR}/../client/obtlib/

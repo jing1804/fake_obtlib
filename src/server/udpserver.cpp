@@ -15,6 +15,7 @@ udpserver::udpserver()
 		exit(1);	
 	}
 }
+
 udpserver::~udpserver()
 {
 

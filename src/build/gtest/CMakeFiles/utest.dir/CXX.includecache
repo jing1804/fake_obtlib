@@ -32,6 +32,14 @@ stdio.h
 stdlib.h
 -
 
+../gtest/../server/handler.h
+iostream
+-
+string.h
+-
+RREService_api.h
+../gtest/../server/RREService_api.h
+
 /home/zhang/workroom/fake_obtlib/src/client/obtlib/RREService_api.cpp
 RREService_api.h
 /home/zhang/workroom/fake_obtlib/src/client/obtlib/RREService_api.h
@@ -67,6 +75,10 @@ stdlib.h
 /home/zhang/workroom/fake_obtlib/src/gtest/test.cpp
 gtest/gtest.h
 /home/zhang/workroom/fake_obtlib/src/gtest/gtest/gtest.h
+RREService_api.h
+/home/zhang/workroom/fake_obtlib/src/gtest/RREService_api.h
+handler.h
+/home/zhang/workroom/fake_obtlib/src/gtest/handler.h
 
 /home/zhang/workroom/fake_obtlib/src/server/handler.cpp
 handler.h

@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zhang/workroom/fake_obtlib/src/client/obtlib/RREService_api.cpp" "/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/client/obtlib/RREService_api.cpp.o"
   "/home/zhang/workroom/fake_obtlib/src/server/handler.cpp" "/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/handler.cpp.o"
-  "/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp" "/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o"
   "/home/zhang/workroom/fake_obtlib/src/gtest/test.cpp" "/home/zhang/workroom/fake_obtlib/src/gtest/build/CMakeFiles/utest.dir/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

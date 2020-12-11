@@ -10,11 +10,8 @@ CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/handler.cpp.o: .
 CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/handler.cpp.o: /home/zhang/workroom/fake_obtlib/src/server/handler.cpp
 CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/handler.cpp.o: /home/zhang/workroom/fake_obtlib/src/server/handler.h
 
-CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o: ../../client/obtlib/RREService_api.h
-CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o: ../../client/obtlib/common_type.h
-CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o: /home/zhang/workroom/fake_obtlib/src/server/handler.h
-CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o: /home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp
-CMakeFiles/utest.dir/home/zhang/workroom/fake_obtlib/src/server/udpserver.cpp.o: /home/zhang/workroom/fake_obtlib/src/server/udpserver.h
-
+CMakeFiles/utest.dir/test.cpp.o: ../../client/obtlib/RREService_api.h
+CMakeFiles/utest.dir/test.cpp.o: ../../client/obtlib/common_type.h
+CMakeFiles/utest.dir/test.cpp.o: ../../server/handler.h
 CMakeFiles/utest.dir/test.cpp.o: ../test.cpp
 
